@@ -1,0 +1,11 @@
+<div class="game-over-dialog">
+  {{#if this.gameService.winner}}
+    <h2>Winner: {{this.gameService.winner}}</h2>
+  {{else}}
+    <h2>It's a draw!</h2>
+  {{/if}}
+  <div class="buttons">
+    <button {{action this.resetGame}}>Reset Game</button>
+    <button {{action this.leaveGame}}>Leave Game</button>
+  </div>
+</div>

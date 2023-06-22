@@ -13,6 +13,8 @@ class GameChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
+    stop_all_streams
+
     connection_id = self.connection.__id__
     @@game_service.leave_game(connection_id)
   end

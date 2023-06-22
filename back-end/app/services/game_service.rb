@@ -118,6 +118,11 @@ class GameService
     indexes
   end
 
+  def reset_game
+    GameService.reset_game
+    ActionCable.server.broadcast "game_channel", get_params
+  end
+
   def self.reset_game
     @@board = [""] * 9
     @@turn = 1

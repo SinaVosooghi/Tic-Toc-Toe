@@ -1,0 +1,31 @@
+<div class="tic-tac-toe">
+  <h1>Tic Tac Toe</h1>
+
+  {{#if this.gameService.currentPlayer}}
+    <p>Player: {{this.gameService.currentPlayer.name}}</p>
+
+    {{#if this.gameService.isGameEnded}}
+      {{#if this.gameService.winner}}
+        <p>Winner: {{this.gameService.winner}}</p>
+      {{else}}
+        <p>It's a draw!</p>
+      {{/if}}
+    {{/if}}
+
+    {{#if this.gameService.board}}
+      <div class="board">
+        {{#each this.gameService.board as |cell index|}}
+          <div
+            class="cell"
+            {{action "putSign" index}}
+          >{{this.gameService.mapPlayerToSign cell}}</div>
+        {{/each}}
+      </div>
+    {{/if}}
+  {{else}}
+    <EnterDialogBox />
+  {{/if}}
+  {{#if this.gameService.gameEnded}}
+    <GameOverDialogBox />
+  {{/if}}
+</div>
