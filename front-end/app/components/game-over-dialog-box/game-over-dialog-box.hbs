@@ -1,0 +1,17 @@
+<div class="game-over-dialog">
+  {{#if this.gameService.winner}}
+    <p class="mdc-typography--subtitle1">Winner: {{this.gameService.winner}}</p>
+  {{else}}
+    <p class="mdc-typography--subtitle1">It's a draw!</p>
+  {{/if}}
+  <div class="buttons">
+    <button
+      class="mdc-button mdc-button--outlined"
+      {{action this.resetGame}}
+    >Reset Game</button>
+    <button
+      class="mdc-button mdc-button--outlined"
+      {{action this.leaveGame}}
+    >Leave Game</button>
+  </div>
+</div>

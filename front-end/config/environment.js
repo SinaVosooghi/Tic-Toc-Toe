@@ -18,6 +18,10 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+
+    cable: {
+      url: 'ws://localhost:3000/cable',
+    },
   };
 
   if (environment === 'development') {

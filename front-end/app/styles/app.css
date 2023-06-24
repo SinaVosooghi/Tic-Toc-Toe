@@ -1,1 +1,93 @@
-/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+.tic-tac-toe {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.tic-tac-toe .game-screen {
+  display: flex;
+}
+
+.tic-tac-toe .board {
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+}
+
+.tic-tac-toe .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 135px;
+  height: 135px;
+  line-height: 60px;
+  text-align: center;
+  border: 0px solid #000000;
+  border-right-width: 2px;
+  border-top-width: 2px;
+  font-size: 120px;
+  cursor: pointer;
+}
+
+/* horizontal lines */
+.tic-tac-toe .cell:nth-child(-n+3) {
+  border-top-width: 0px;
+}
+
+/* vertical lines */
+.tic-tac-toe .cell:nth-child(3n) {
+  border-right-width: 0px;
+}
+
+.tic-tac-toe .controls {
+  margin-top: 20px;
+}
+
+/* enter-dialog-box styles */
+.enter-dialog-box {
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  margin-top: 15vh;
+}
+
+.enter-dialog-box input {
+  width: 200px;
+  height: 20px;
+  padding-block: 5px;
+  padding-inline: 10px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.enter-dialog-box input:focus {
+  outline: none;
+}
+
+/* game-over-dialog-box styles */
+.game-over-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
