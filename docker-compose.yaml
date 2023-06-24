@@ -1,0 +1,16 @@
+version: "1"
+services:
+  front-end:
+    command: ember serve
+    build: ./front-end
+    ports:
+      - "4200:4200"
+      - "7357:7357"
+      - "9222:9222"
+  back-end:
+    build: ./back-end
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/Rails-Docker
+    ports:
+      - "3000:3000"
