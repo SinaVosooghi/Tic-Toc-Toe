@@ -1,93 +1,81 @@
 .tic-tac-toe {
   text-align: center;
-  padding: 20px;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  background-image: url("/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+.tic-tac-toe .game-screen {
+  display: flex;
 }
 
-.board {
+.tic-tac-toe .board {
   margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 600px;
+  width: 500px;
 }
 
-.cell {
+.tic-tac-toe .cell {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 160px;
-  height: 160px;
+  width: 135px;
+  height: 135px;
   line-height: 60px;
   text-align: center;
-  border: 1px solid #ccc;
+  border: 0px solid #000000;
+  border-right-width: 2px;
+  border-top-width: 2px;
   font-size: 120px;
   cursor: pointer;
 }
 
-.controls {
+/* horizontal lines */
+.tic-tac-toe .cell:nth-child(-n+3) {
+  border-top-width: 0px;
+}
+
+/* vertical lines */
+.tic-tac-toe .cell:nth-child(3n) {
+  border-right-width: 0px;
+}
+
+.tic-tac-toe .controls {
   margin-top: 20px;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-
 /* enter-dialog-box styles */
 .enter-dialog-box {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
   padding: 20px;
-  background-color: white;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.enter-dialog-box h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  margin-top: 15vh;
 }
 
 .enter-dialog-box input {
   width: 200px;
-  padding: 5px;
+  height: 20px;
+  padding-block: 5px;
+  padding-inline: 10px;
   margin-bottom: 10px;
+  background-color: transparent;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
-.enter-dialog-box button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.enter-dialog-box button:hover {
-  background-color: #45a049;
+.enter-dialog-box input:focus {
+  outline: none;
 }
 
 /* game-over-dialog-box styles */
@@ -98,29 +86,8 @@ button:hover {
   transform: translate(-50%, -50%);
   text-align: center;
   padding: 20px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
   border: 1px solid #ccc;
+  border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.game-over-dialog h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.game-over-dialog .buttons {
-  margin-top: 20px;
-}
-
-.game-over-dialog button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.game-over-dialog button:hover {
-  background-color: #45a049;
 }

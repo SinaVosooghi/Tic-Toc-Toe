@@ -1,28 +1,39 @@
 <div class="tic-tac-toe">
-  <h1>Tic Tac Toe</h1>
-
   {{#if this.gameService.currentPlayer}}
-    <p>Player: {{this.gameService.currentPlayer.name}}</p>
+    <h1 class="mdc-typography--headline3">Hello
+      {{this.gameService.currentPlayer.name}}!</h1>
+    <div class="game-screen">
+      <h3 class="mdc-typography--headline3">
+        {{#if this.gameService.player1}}
+          {{this.gameService.player1.name}}
+          <br />
+          <h1 class="mdc-typography--headline1">○</h1>
+        {{/if}}
+      </h3>
 
-    {{#if this.gameService.isGameEnded}}
-      {{#if this.gameService.winner}}
-        <p>Winner: {{this.gameService.winner}}</p>
-      {{else}}
-        <p>It's a draw!</p>
+      {{#if this.gameService.board}}
+        <div class="board">
+
+          {{#each this.gameService.board as |cell index|}}
+            <div
+              class="cell"
+              {{action "putSign" index}}
+            >{{this.gameService.mapPlayerToSign cell}}</div>
+          {{/each}}
+        </div>
       {{/if}}
-    {{/if}}
 
-    {{#if this.gameService.board}}
-      <div class="board">
-        {{#each this.gameService.board as |cell index|}}
-          <div
-            class="cell"
-            {{action "putSign" index}}
-          >{{this.gameService.mapPlayerToSign cell}}</div>
-        {{/each}}
-      </div>
-    {{/if}}
+      <h3 class="mdc-typography--headline3">
+        {{#if this.gameService.player2.name}}
+          {{this.gameService.player2.name}}
+          <br />
+          <h1 class="mdc-typography--headline1">✗</h1>
+        {{/if}}
+      </h3>
+
+    </div>
   {{else}}
+    <h1 class="mdc-typography--headline1">Tic Tac Toe</h1>
     <EnterDialogBox />
   {{/if}}
   {{#if this.gameService.gameEnded}}
